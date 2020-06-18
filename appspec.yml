@@ -2,9 +2,9 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /tmp/nbuild-admin-v1
+    destination: /tmp/peddlers-customers-frontend
 permissions:
-  - object: /tmp/nbuild-admin-v1
+  - object: /tmp/peddlers-customers-frontend
     owner: ubuntu
     group: ubuntu
 hooks:
