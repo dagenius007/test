@@ -1,3 +1,5 @@
 #!/bin/bash
-sudo rm -r /home/ubuntu/npay-frontend
-sudo mv /tmp/npay-frontend /home/ubuntu/npay-frontend
+if [ -d /home/ubuntu/peddlers-customers-frontend ]; then
+sudo rm -r /home/ubuntu/peddlers-customers-frontend
+fi
+sudo mv /tmp/peddlers-customers-frontend /home/ubuntu/peddlers-customers-frontend
