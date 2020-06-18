@@ -1,4 +1,4 @@
-if [ -d /tmp/nbuild-admin-v1 ]; then
-  sudo rm -R /tmp/nbuild-admin-v1
-  mkdir /tmp/nbuild-admin-v1
+if [ -d /tmp/peddlers-customers-frontend ]; then
+  sudo rm -R /tmp/peddlers-customers-frontend
+  mkdir /tmp/peddlers-customers-frontend
 fi
