@@ -1,0 +1,145 @@
+// Registration and Login styling
+@mixin inputQueryBreakPoint {
+    @media (max-width: 768px) {
+        width: 300px;
+    }
+    @media (max-width: 550px) {
+        width: 280px;
+    }
+}
+.main__parent--container {
+
+    .form__container {
+        width: 480px;
+        padding: 50px 22px;
+        background: $gs3-white;
+        @include classicFlex();
+        border-radius: 10px;
+        margin-top: 30px;
+
+        @media (max-width: 768px) {
+            margin-top: 50px;
+        }
+        @media (max-width: 450px) {
+            width: 390px;
+            margin-top: 50px;
+        }
+        @media (max-width: 400px) {
+            width: 300px;
+        }
+    }
+
+    .form__heading__container {
+        @include classicFlex();
+        p {
+            color: $gs3-body-text;
+            padding: 10px;
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 2rem;
+
+            @media (max-width: 500px) {
+                padding: 0;
+            }
+        }
+
+        h3 {
+            color: $gs3-secondary;
+            font-size: 1.5rem;
+            padding: 10px 0;
+        }
+    }
+    
+    .input__container {
+        @include classicFlex();
+        position: relative;
+        margin-top: 20px;
+        width: 400px;
+
+        @include inputQueryBreakPoint();
+
+        img {
+            position: absolute;
+            right: 15px;
+            top: 49px;
+            width: 15px;
+            cursor: pointer;
+        }
+        input {
+            padding: 12px 10px;
+            width: 100%;
+        }
+        p {
+            width: 100%;
+            padding: 10px 0;
+            color: $gs3-labels;
+        }
+
+        button {
+            padding: 12px 10px;
+            width: 400px;
+            background: $gs3-primary;
+            margin-top: 10px;
+            border-radius: 5px;
+            color: white;
+            font-size: 1.2rem;
+            @include inputQueryBreakPoint();
+        }
+    }
+
+    .forgot__password__link--container {
+        margin-top: 20px;
+
+        .forgot-password {
+            text-align: center;
+        }
+    }
+
+    .input__container:last-child p{
+        // font-size: 0.8rem;
+        // width: 100%;
+        // text-align: center;
+    }
+}
+
+// Email verification after registration style
+.main__parent--container {
+    .sent__card {
+        background: $gs3-white;
+        padding: 50px 50px;
+        margin-top: 50px;
+        width: 600px;
+        box-shadow: 0 0 3px 1px $gs3-border;
+        @include classicGrid();
+
+        @media (max-width: 768px) {
+            width: 500px;
+            padding: 30px 30px;
+        }
+        @media (max-width: 500px) {
+            width: 280px;
+            padding: 10px 10px;
+        }
+
+        h3 {
+            color: $gs3-secondary;
+            font-size: 2rem;
+
+            @media (max-width: 500px) {
+                font-size: 1.2rem;
+            }
+        }
+
+        p {
+            color: $gs3-body-text;
+            font-size: 1.2rem;
+            text-align: center;
+            line-height: 2.5rem;
+
+            @media (max-width: 500px) {
+                font-size: 1rem;
+                line-height: 1.5rem;
+            }
+        }
+    }
+}

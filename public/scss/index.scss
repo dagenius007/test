@@ -1,0 +1,66 @@
+@import './module/variables.scss';
+@import './mixins/global.scss';
+@import './module/auth-form-layouts.scss';
+@import './module/top-nav.scss';
+@import './custom.scss';
+
+* {
+	padding: 0;
+	margin: 0;
+	border: none;
+	box-sizing: border-box;
+	// font-family: GraphikRegular;
+	font-family: Inter;
+}
+
+#root {
+	position: relative;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul,
+li {
+	list-style: none;
+}
+
+html {
+	font-size: 10pt;
+	background: $gs3-bg;
+	min-width: $min-view-width;
+}
+
+body {
+	font-family: 'Graphik';
+}
+
+.app {
+	margin-top: 120px;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+input {
+	border: 1px solid $gs3-border;
+	border-radius: 5px;
+	outline: none;
+	font-size: 0.9rem;
+	color: $gs3-secondary;
+	transition: border ease-in-out 0.3s;
+}
+
+input:focus-within {
+	border: 1px solid $gs3-secondary;
+}
+
+.error {
+	color: red !important;
+}
+
+.primary-color {
+	color: $gs3-primary !important;
+}
