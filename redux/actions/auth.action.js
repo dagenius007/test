@@ -43,18 +43,24 @@ export const login = (userData) => async (dispatch) => {
 	try {
 		const {
 			data: { token, data },
-		} = await axios.post(`${URL}/admin/account/login`, userData);
+		} = await axios.post(`${URL}/customer/account/login`, userData);
 
 		// localStorage.setItem('customer_peddlers_token', token);
+		dispatch({
+			type: message.GET_SUCCESS,
+			payload: '',
+		});
 		setCookie('customer_peddlers_token', token);
 		setCookie(
 			'customer_peddlers',
+
 			JSON.stringify({
 				...data,
 			}),
 		);
 
 		dispatch(setCurrentUser(data));
+		Router.push('/');
 	} catch (err) {
 		let customError = {};
 		if (err && err.response) {
@@ -97,9 +103,9 @@ export const updateProfile = (id, userData) => async (dispatch) => {
 };
 
 export const verify = (key) => async (dispatch) => {
-	// loading('verify');
+	dispatch({ type: t.IS_LOGGING_IN, payload: true });
 	try {
-		await axios.post(`${URL}/gso/account/email/verify`, {
+		await axios.post(`${URL}/customer/account/email/verify`, {
 			key,
 		});
 
@@ -117,7 +123,7 @@ export const verify = (key) => async (dispatch) => {
 		errorHandler(err, dispatch, customError);
 	}
 
-	// endLoading('verify');
+	dispatch({ type: t.IS_LOGGING_IN, payload: false });
 };
 
 export const updatePassword = (userPassword) => async (dispatch) => {
@@ -176,6 +182,7 @@ export const resetPassword = (password, token) => async (dispatch) => {
 };
 
 export const logoutUser = () => (dispatch) => {
+
 	removeCookie('customer_peddlers_token');
 	removeCookie('customer_peddlers');
 	Router.push('/');

@@ -18,6 +18,7 @@ const initialState = {
 const auth = (state = initialState, action) => {
 	switch (action.type) {
 		case t.SET_USER:
+			console.log(action.payload);
 			return {
 				...state,
 				user: action.payload,

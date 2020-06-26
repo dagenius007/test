@@ -60,130 +60,137 @@ const SignUp = ({ signUp, loading, success, isLogging }) => {
 	}, [errors]);
 
 	return (
-		<form className='form__container' onSubmit={handleSubmit}>
-			<div className='form__heading__container'>
-				<img src={signupAvatarIcon} alt='' />
+		<section
+			className='main__parent--container'
+			style={{ backgroundColor: '#FFF7F9' }}
+		>
+			<form className='form__container' onSubmit={handleSubmit}>
+				<div className='form__heading__container'>
+					<img src={signupAvatarIcon} alt='' />
 
-				<h3>Create an account</h3>
-				<p>
-					Buy refined Petroleum Products and deliver to your outlet’s
-					door step. It’s seamless and easy!
-				</p>
-			</div>
+					<h3>Create an account</h3>
+					<p>
+						Buy refined Petroleum Products and deliver to your
+						outlet’s door step. It’s seamless and easy!
+					</p>
+				</div>
 
-			<div className='input__container'>
-				<p>Full name</p>
-				<input
-					name='fullName'
-					placeholder='Enter your full name'
-					placeholder='youremail@example.com'
-					onChange={handleChange}
-					data-testid='fullName'
-					values={values.fullName}
-				/>
-				{filedErrors.fullName ? (
-					<p className='error'>{filedErrors.fullName}</p>
-				) : (
-					''
-				)}
-			</div>
+				<div className='input__container'>
+					<p>Full name</p>
+					<input
+						name='fullName'
+						placeholder='Enter your full name'
+						placeholder='youremail@example.com'
+						onChange={handleChange}
+						data-testid='fullName'
+						values={values.fullName}
+					/>
+					{filedErrors.fullName ? (
+						<p className='error'>{filedErrors.fullName}</p>
+					) : (
+						''
+					)}
+				</div>
 
-			<div className='input__container'>
-				<p>Email Address</p>
-				<input
-					name='email'
-					placeholder='youremail@example.com'
-					onChange={handleChange}
-					values={values.email}
-					data-testid='email'
-				/>
-				{filedErrors.email ? (
-					<p className='error'>{filedErrors.email}</p>
-				) : (
-					''
-				)}
-			</div>
+				<div className='input__container'>
+					<p>Email Address</p>
+					<input
+						name='email'
+						placeholder='youremail@example.com'
+						onChange={handleChange}
+						values={values.email}
+						data-testid='email'
+					/>
+					{filedErrors.email ? (
+						<p className='error'>{filedErrors.email}</p>
+					) : (
+						''
+					)}
+				</div>
 
-			<div className='input__container'>
-				<p>Phone Number</p>
-				<input
-					name='phoneNumber'
-					type='text'
-					placeholder='Enter your phone number'
-					onChange={handleChange}
-					values={values.businessName}
-					data-testid='phoneNumber'
-				/>
-				{filedErrors.phoneNumber ? (
-					<p className='error'>{filedErrors.phoneNumber}</p>
-				) : (
-					''
-				)}
-			</div>
+				<div className='input__container'>
+					<p>Phone Number</p>
+					<input
+						name='phoneNumber'
+						type='text'
+						placeholder='Enter your phone number'
+						onChange={handleChange}
+						values={values.businessName}
+						data-testid='phoneNumber'
+					/>
+					{filedErrors.phoneNumber ? (
+						<p className='error'>{filedErrors.phoneNumber}</p>
+					) : (
+						''
+					)}
+				</div>
 
-			<div className='input__container'>
-				<p>Create Password</p>
-				<input
-					name='password'
-					type={isVisible ? 'text' : 'password'}
-					placeholder='Enter your password'
-					onChange={handleChange}
-					values={values.password}
-					minLength={6}
-					data-testid='password'
-				/>
-				<img
-					src={isVisible ? eyeIcon : eyeCloseIcon}
-					alt=''
-					onClick={() => setIsVisible((isVisible) => !isVisible)}
-				/>
-				{filedErrors.password ? (
-					<p className='error'>{filedErrors.password}</p>
-				) : (
-					''
-				)}
-			</div>
+				<div className='input__container'>
+					<p>Create Password</p>
+					<input
+						name='password'
+						type={isVisible ? 'text' : 'password'}
+						placeholder='Enter your password'
+						onChange={handleChange}
+						values={values.password}
+						minLength={6}
+						data-testid='password'
+					/>
+					<img
+						src={isVisible ? eyeIcon : eyeCloseIcon}
+						alt=''
+						onClick={() => setIsVisible((isVisible) => !isVisible)}
+					/>
+					{filedErrors.password ? (
+						<p className='error'>{filedErrors.password}</p>
+					) : (
+						''
+					)}
+				</div>
 
-			<div className='input__container'>
-				<p>Confirm Password</p>
-				<input
-					name='confirmPassword'
-					type={cisVisible ? 'text' : 'password'}
-					placeholder='Confirm your password'
-					onChange={handleChange}
-					values={values.confirmPassword}
-					data-testid='confirmPassword'
-				/>
-				<img
-					src={cisVisible ? eyeIcon : eyeCloseIcon}
-					alt=''
-					onClick={() => setcIsVisible((cisVisible) => !cisVisible)}
-				/>
-				{filedErrors.confirmPassword ? (
-					<p className='error'>{filedErrors.confirmPassword}</p>
-				) : (
-					''
-				)}
-			</div>
+				<div className='input__container'>
+					<p>Confirm Password</p>
+					<input
+						name='confirmPassword'
+						type={cisVisible ? 'text' : 'password'}
+						placeholder='Confirm your password'
+						onChange={handleChange}
+						values={values.confirmPassword}
+						data-testid='confirmPassword'
+					/>
+					<img
+						src={cisVisible ? eyeIcon : eyeCloseIcon}
+						alt=''
+						onClick={() =>
+							setcIsVisible((cisVisible) => !cisVisible)
+						}
+					/>
+					{filedErrors.confirmPassword ? (
+						<p className='error'>{filedErrors.confirmPassword}</p>
+					) : (
+						''
+					)}
+				</div>
 
-			<div className='input__container submit__container'>
-				<button type='submit' disabled={isLogging}>
-					{isLogging ? <ButtonLoader /> : 'Sign Up'}
-				</button>
-				<AuthTextBottom>
-					By clicking on "Sign Up", you agree to our
-					<span className='primary-color'>
-						<Terms
-							id='terms'
-							href='https://gs3.services/terms-conditions'
-							target='_blank'
-						>
-							Terms and Conditions
-						</Terms>
-					</span>
-				</AuthTextBottom>
-			</div>
-		</form>
+				<div className='input__container submit__container'>
+					<button type='submit' disabled={isLogging}>
+						{isLogging ? <ButtonLoader /> : 'Sign Up'}
+					</button>
+					<AuthTextBottom>
+						By clicking on "Sign Up", you agree to our
+						<span className='primary-color'>
+							<Terms
+								id='terms'
+								href='https://gs3.services/terms-conditions'
+								target='_blank'
+							>
+								Terms and Conditions
+							</Terms>
+						</span>
+					</AuthTextBottom>
+				</div>
+			</form>
+		</section>
 	);
 };
 

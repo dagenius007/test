@@ -42,62 +42,67 @@ const ResetPassword = ({ resetPassword, isLogging, success, query }) => {
 	}, [errors]);
 
 	return (
-		<form className='form__container' onSubmit={handleSubmit}>
-			<div className='form__heading__container'>
-				<img src={resetPasswordIcon} alt='' />
+		<section
+			className='main__parent--container'
+			style={{ backgroundColor: '#FFF7F9' }}
+		>
+			<form className='form__container' onSubmit={handleSubmit}>
+				<div className='form__heading__container'>
+					<img src={resetPasswordIcon} alt='' />
 
-				<h3>Reset your password</h3>
-				<p>Create a new password for your account</p>
-			</div>
+					<h3>Reset your password</h3>
+					<p>Create a new password for your account</p>
+				</div>
 
-			<div className='input__container'>
-				<p>New Password</p>
-				<input
-					name='password'
-					type={isVisible ? 'text' : 'password'}
-					onChange={handleChange}
-					values={values.password}
-				/>
-				<img
-					src={isVisible ? eyeIcon : eyeCloseIcon}
-					alt=''
-					onClick={() => setIsVisible((isVisible) => !isVisible)}
-				/>
-				{filedErrors.password ? (
-					<p className='error'>{filedErrors.password}</p>
-				) : (
-					''
-				)}
-			</div>
+				<div className='input__container'>
+					<p>New Password</p>
+					<input
+						name='password'
+						type={isVisible ? 'text' : 'password'}
+						onChange={handleChange}
+						values={values.password}
+					/>
+					<img
+						src={isVisible ? eyeIcon : eyeCloseIcon}
+						alt=''
+						onClick={() => setIsVisible((isVisible) => !isVisible)}
+					/>
+					{filedErrors.password ? (
+						<p className='error'>{filedErrors.password}</p>
+					) : (
+						''
+					)}
+				</div>
 
-			<div className='input__container'>
-				<p>Re-enter New Password</p>
-				<input
-					name='confirmPassword'
-					type={isVisibleReType ? 'text' : 'password'}
-					onChange={handleChange}
-					values={values.password}
-				/>
-				<img
-					src={isVisibleReType ? eyeIcon : eyeCloseIcon}
-					alt=''
-					onClick={() =>
-						setIsVisibleReType((isVisible) => !isVisible)
-					}
-				/>
-				{filedErrors.confirmPassword ? (
-					<p className='error'>{filedErrors.confirmPassword}</p>
-				) : (
-					''
-				)}
-			</div>
+				<div className='input__container'>
+					<p>Re-enter New Password</p>
+					<input
+						name='confirmPassword'
+						type={isVisibleReType ? 'text' : 'password'}
+						onChange={handleChange}
+						values={values.password}
+					/>
+					<img
+						src={isVisibleReType ? eyeIcon : eyeCloseIcon}
+						alt=''
+						onClick={() =>
+							setIsVisibleReType((isVisible) => !isVisible)
+						}
+					/>
+					{filedErrors.confirmPassword ? (
+						<p className='error'>{filedErrors.confirmPassword}</p>
+					) : (
+						''
+					)}
+				</div>
 
-			<div className='input__container submit__container'>
-				<button type='submit' disabled={isLogging}>
-					{isLogging ? <ButtonLoader /> : 'Reset password'}
-				</button>
-			</div>
-		</form>
+				<div className='input__container submit__container'>
+					<button type='submit' disabled={isLogging}>
+						{isLogging ? <ButtonLoader /> : 'Reset password'}
+					</button>
+				</div>
+			</form>
+		</section>
 	);
 };
 

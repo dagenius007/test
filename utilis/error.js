@@ -3,13 +3,13 @@ import { logoutUser } from 'redux/actions/auth.action';
 
 export const errorHandler = (err, dispatch) => {
 	let customErrors = {};
-	console.log('hi');
+
 	if (err && err.response) {
 		customErrors[err.response.status] = err.response.data.error;
 	}
 
-	if (err.response !== null) {
-		if (err.response.status !== null) {
+	if (err.response) {
+		if (err.response.status) {
 			if (err.response.status === 404) {
 				return dispatch({
 					type: t.GET_ERRORS,

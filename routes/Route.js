@@ -1,17 +1,10 @@
 import { connect } from 'react-redux';
-import AuthLayout from 'layouts/AuthLayout';
+import Layout from 'layouts/Layout';
 
 
-const Route = ({ isAuthenticated, children }) => {
-	return (
-		<AuthLayout>
-			{children}
-		</AuthLayout>
-	);
+const Route = ({ children }) => {
+	return <Layout>{children}</Layout>;
 };
 
-Route.getInitialProps = async (ctx) => {
-	checkServerSideCookie(ctx);
-};
 
 export default connect((state) => state, null)(Route);
